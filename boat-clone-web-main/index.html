@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/CSSRulePlugin.min.js"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> -->
+    <style>
+        .flash_sale {
+          position: relative;
+          margin-left: 4%;
+          width:max-content;
+          
+          display: flex;
+          align-items: center;
+          padding: 0px 10px;
+          background: linear-gradient(270deg, #FBC50A 23.86%, #DFB108 47.06%, #FBC50A 66.05%);
+          border-radius: 5px;
+          margin-top: 7px;
+          margin-bottom: 7px;
+          animation: 5s linear 0s infinite normal none running bgstrip;
+        }
+    
+        .flash_text {
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          color: black;
+        }
+    
+        .flashtimer {
+          margin: 0;
+          background: transparent;
+          padding: 10px 0;
+          max-width: max-content;
+          border-radius: 5px;
+          line-height: normal;
+          display: flex;
+          align-items: center;
+        }
+    
+        .flashtimer .timer--expired {
+          display: none;
+        }
+    
+        .flashtimer .timer__title {
+          text-align: center;
+          margin: 0 !important;
+          color: #070707;
+          font-size: 16px;
+          font-weight: 500;
+        }
+    
+        .flashtimer .timer-display {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          margin-top: 0;
+        }
+    
+        .flashtimer .timer-block {
+          position: relative;
+          width: 36px;
+          padding: 0;
+          text-align: center;
+          font-size: 16px;
+          color: #070707;
+          font-weight: 500;
+        }
+    
+        .flashtimer .timer-block__num,
+        .flashtimer .timer-block__unit {
+          display: block;
+          text-align: center;
+        }
+    
+        .flashtimer .milliseconds {
+          background: white;
+          color: black;
+          font-weight: bold;
+          padding: 0;
+          width: 22px;
+        }
+    
+        @keyframes bgstrip {
+          0% {
+            background-position: -1000px 0px;
+          }
+    
+          100% {
+            background-position: 1000px 0px;
+          }
+        }
+    
+        @media screen and (max-width: 767px) {
+          
+          
+          .flash_sale{width: 240px;}
+          
+          .flashtimer .timer-block {
+            width: 30px !important;
+            font-size: 14px !important;
+          }
+          .flashtimer .timer__title,
+          .flash_text {
+            font-size: 14px !important;
+          }
+        }
+        @media screen and (min-width: 768px) {
+          .flash_sale {width: 280px;}
+        }
+       .timer-block.milliseconds {position: absolute;right: 0;}
+    </style>
+    
+    
+</head>
+
+<body>
+    <div id="main">
+        <div id="nav-bar">
+            <div class="mono"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/boat_logo_small.webp?v=1672379935" alt=""></div>
+            <div class="menue">
+                <a href="">CATEGORIES <i class="ri-arrow-drop-down-line"></i></a>
+                <a href="">DAILY DEALS</a>
+                <a href="">GIFT WITH BOAT</a>
+                <a href="">MORE <i class="ri-arrow-drop-down-line"></i></a>
+            </div>
+            <div class="icons">
+                <div class="input">
+                    <i class="ri-search-line"></i>
+                    <input  type="text" placeholder="Search">
+                  </div>
+                  <i class="ri-account-pin-box-line"></i>
+                  <i class="ri-shopping-cart-line"></i>
+            </div>
+        </div>
+        
+        <div id="page1">
+            <div class="box">
+                <div class="col1">
+                  <div class="imb">
+                    <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/promise_icon_2_small.png?v=1663586590" alt="">
+                  </div>
+                  <div class="text">
+                    <p>1Year<br>Warrenty</p>
+                  </div>
+                </div>
+                <div class="col1">
+                  <div class="imb">
+                    <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/promise_icon_3_small.png?v=1663586612" alt="">
+        
+                  </div>
+                  <div class="text">
+                    <p>Free 7 Days<br>Replacement</p>
+                  </div>
+                </div>
+                <div class="col1">
+                  <div class="imb">
+                    <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/promise_icon_1_small.png?v=1663586576" alt="">
+        
+                  </div>
+                  <div class="text">
+                    <p>Free<br>Shipping</p>
+                  </div>
+                </div>
+                <div class="col1">
+                  <div class="imb">
+                    <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/promise_icon_4_small.png?v=1663586627" alt="">
+        
+                  </div>
+                  <div class="text">
+                    <p>Secure<br>Checkout</p>
+                  </div>
+                </div>
+                <div class="col1">
+                  <div class="imb">
+                    <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/icon-black-v1_small.png?v=1661245767" alt="">
+                  </div>
+                  <div class="text">
+                    <p>Gst<br>Billing</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-box">
+                
+              </div>
+            </div>
+
+        
+
+        <div id="page2">
+            <h2>Daily deals</h2>
+
+            <div class="flash_sale">
+                <p class="m-0 text-uppercase flash_text">
+                  <span class="thunder"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-fill" viewBox="0 0 16 16">
+                      <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"></path>
+                      </svg></span>&nbsp;
+  
+                </p>
+                <div class="flashtimer">
+    <h4 class="timer__title">Ending In:</h4>
+    <div class="timer-display">
+  
+        <div class="timer-block days-timer" style="display:none;">
+          <span class="timer-block__num js-timer-days">00</span>
+        </div>
+      <div class="timer-block">
+        <span class="timer-block__num js-timer-hours">9h</span>
+      </div>
+      <div class="timer-block">
+        <span class="timer-block__num js-timer-minutes">52m</span>
+      </div>
+      <div class="timer-block">
+        <span class="timer-block__num js-timer-seconds">49s</span>
+      </div>
+      <div class="timer-block milliseconds">
+        <span class="timer-block__num js-timer-ms">2</span>
+      </div>
+    </div>
+  </div>
+  
+  
+              </div>
+
+              <div id="slide-ones">
+
+               <!-- <div class="card-one">
+    <div class="image">
+        <span>60 hours playback</span>
+        <img class="imgone" src="${val.img}" alt="">
+        
+    </div>
+    <div class="saver">
+        <p>super saver</p>
+    </div>
+    
+
+    <div class="info">
+        <h3>${val.name}</h3>
+        <h4>${val.price} <span>67% off</span> <del>${val.del}</del></h4>
+
+        <h5>4.8 | <span>1297 reviews</span></h5>
+        <h6>r 15 Extra discount on upi</h6>
+        <button>Add to Cart</button>
+    </div>  
+              </div>   -->
+
+
+
+   
+
+            </div>
+              <h3>Shop By Category</h3>
+                <div class="grid-card">
+                 
+                  
+                </div>
+               
+
+              </div>
+
+              <div id="page3">
+                <h5>Best Of boAt</h5>
+                <div class="gallerys">
+                  <button id="seller" href="#">Best Sellers</button>
+                  <button id="earbuds" href="#">Top Earbuds</button>
+                  <button id="wireless" href="#">Trending Wireless</button>
+                  <button id="anc" href="#">Trending ENC</button>
+                </div>
+
+                <div class="multiple-boxes">
+                  <div class="best-seller">
+
+                  </div>
+                  <div class="top-earbuds">
+
+                  </div>
+                  <div class="trending-wireless"></div>
+                  <div class="trending-enc"></div>
+                  
+
+                </div>
+
+                <div id="slider-two">
+
+                  <!-- <i class="ri-arrow-left-double-line" ></i> -->
+                    <div class="two-box"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/carousel_banner_445x.png?v=1671097960" alt=""></div>
+                    <div class="two-box"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Bring_Your_World_On_Your_Wrist_446x360_66921214-c5ee-4bda-a433-f52b1c2124d4_445x.jpg?v=1672749745" alt=""></div>
+                    <div class="two-box"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/446_380_445x.png?v=1676388029" alt=""></div>
+                    <div class="two-box"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/stone_1_445x.png?v=1670244742" alt=""></div>
+                    <div class="two-box"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/newsletter_carousel-banner_445x.png?v=1672738706" alt=""></div>
+                    <!-- <i class="ri-arrow-right-double-fill" ></i> -->
+                  </div>
+
+              </div>
+
+
+                  <div id="page4">
+                      <div class="video-container">    
+                      </div>
+                  </div>
+                  <div id="page5">
+                    <h3>Catch,hm All</h3>
+                    <button>Marvel</button>
+                    <div class="marvel-contain">
+                      <!-- <div class="marvel-cards">
+                        <div class="marvelimg"><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main-image_300x.png?v=1655534170" alt=""></div>
+                        <div class="limited"><p>Limited Edition</p></div>
+                          <div class="marvel-info">
+                              <h4>Stone 190 Dc..</h4>
+                              <h5>Rupees <span>57% off</span>
+                              <del>2999</del></h5>&nbsp;<hr>
+                              <h6><i class="ri-star-s-line"></i>rating &nbsp;! &nbsp;<span>9 reviews</span></h6>
+                              <p>15 Extra Discount on UPI</p>
+                              <a href=""><button>ADD TO CART</button></a>
+                          </div>
+                      </div> -->
+                      
+
+                    </div>
+
+                    <div class="wrapper-explore">
+                        <div class="explore">
+                          <i id="left" class="ri-arrow-drop-left-line"></i>
+                          <div class="explore-card">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/1_2_521ed96e-c410-4dea-8ba0-2efa379e6306.png?v=1681123832" alt="">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/2_2_f8ef8a26-3262-4a20-b686-d31578e988c7.png?v=1681123832" alt="">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/3_2_4406c818-451e-4560-a811-74b129eb2db8.png?v=1681123832" alt="">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/4_2_0ba0727f-f9ea-4377-9bb7-deab521d5cf3.png?v=1681123831" alt="">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/5_1_24a64ddd-92fd-43fc-8f00-916aa890db31.png?v=1681123832" alt="">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/6_ba29390a-68dd-4caa-98b7-934232999ea3.png?v=1681123831" alt="">
+                            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/7_87733eca-a3a7-41b6-87c6-661c5bf7bdac.png?v=1681123832" alt="">
+                            
+                          </div>
+                          <i id="right" class="ri-arrow-drop-right-line"></i>
+                        </div>
+                      </div>
+                        
+
+
+                  </div>
+                      <div id="page6">
+                        <div class="up-end">
+                          <div class="left-end">
+                          <img                     src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/boAt_logo.svg" alt="">
+                          <h2>Subscribe to our email alerts!</h2>
+                          <input type="email" placeholder="Enter Your Email Address  " name="" id="">
+                          <i class="ri-arrow-drop-right-line"></i>
+                          </div>
+                            <div class="rights-end">
+                              <div class="shop">
+                                <h4>Shop</h4>
+                                <div class="div">
+                                  <div class="lft">
+                                    <p>True Wireless Earbuds</p>
+                                    <p>Wired Headphone</p>
+                                    <p>Home Audio</p>
+                                    <p>Smart Watches</p>
+                                    <p>Misfit</p>
+                                    <p>Earn 100</p>
+                                  </div>
+                                  <div class="rht">
+                                    <p>Wireless
+                                      Headphone</p>
+                                    <p>Wireless Speaker</p>
+                                    <p>Mobile Accessories</p>
+                                    <p>TRebel</p>
+                                    <p>Gift Card</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="help">
+                                <h4>Help</h4>
+                                <div class="div">
+                                  <div class="lft">
+                                    <p>Track Your Order</p>
+                                    <p>Return Policy</p>
+                                    <p>Bulk Orders                                                                     </p>
+                                    <p>Why Buy Direct</p>
+                                  </div>
+                                  <div class="rht">
+                                    <p>Warranty & Support</p>
+                                    <p>Service 
+                                      Center
+                                    </p>
+                                    <p>FAQs</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="company">
+                                <h4>Company</h4>
+                                <div class="divs">
+                                <p>About boAt</p>
+                                <p>News</p>
+                                <p>Read Our Blog</p>
+                                <p>Careers</p>
+                                <p>Security</p>
+                                <p>Investor Relation</p>
+                                <p>Social Responsibility</p>
+                                <p>Warranty Policy</p>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                        </div>
+                        <div class="below-end">
+                          <h1>Let's get social  &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="ri-facebook-circle-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="ri-instagram-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="ri-twitter-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="ri-youtube-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="ri-linkedin-box-line"></i>
+
+                          </h1>
+                          <h5>Privacy Policy &nbsp;
+                            Terms & Conditions</h5>
+                            <h6>© 2023 Imagine Marketing Limited. All Rights Reserved.
+                            </h6><hr>
+                            <p>For queries contact us: Manager, Imagine Marketing Limited Unit no. 204 & 205, 2nd floor, D-wing & E-wing,
+                              Corporate Avenue, Andheri Ghatkopar Link Road, Mumbai, Maharashtra-400093, India</p><hr>
+                        </div>
+                      </div>
+
+
+
+
+
+                 
+
+
+
+        </div>
+
+
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script> -->
+    <script type="text/javascript">
+        //    $(window).on('load', function() {
+        //    	$('.timer-display').css("display", "flex");
+        //    })
+        var second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          _day = hour * 24;
+        
+        var countDown = new Date('JANUARY 22, 2023 23:59:59').getTime(),
+          x = setInterval(function () {
+            var now = new Date().getTime(),
+              distance = countDown - now;
+            if (distance < 1) {
+            var hr = 23;
+        var min = 59;
+        var sec = 60;
+        var distance = 1;
+        x = setInterval(function () {
+          var curr = new Date();
+          //     document.querySelector('.flashtimer .js-timer-days').innerText = Math.floor(distance / (_day)) + 'd',
+          document.querySelector('.flashtimer .js-timer-hours').innerText = hr - curr.getHours() + 'h',
+            document.querySelector('.flashtimer .js-timer-minutes').innerText = min - curr.getMinutes() + 'm',
+            document.querySelector('.flashtimer .js-timer-seconds').innerText = sec - curr.getSeconds() + 's';
+        }, second);
+            } else {
+               document.querySelector('.flashtimer .timer-block.days-timer').style.display = "block",
+              document.querySelector('.flashtimer .js-timer-days').innerText = Math.floor(distance / (_day)) + 'd',
+              document.querySelector('.flashtimer .js-timer-hours').innerText = Math.floor((distance % (_day)) / (hour)) + 'h',
+                document.querySelector('.flashtimer .js-timer-minutes').innerText = Math.floor((distance % (hour)) / (minute)) + 'm',
+                document.querySelector('.flashtimer .js-timer-seconds').innerText = Math.floor((distance % (minute)) / second) + 's';
+            }
+          }, second);
+        var now = new Date().getTime(),
+          distance = countDown - now;
+        
+      
+      
+        // if (distance > 0) {
+          const printNumbersForEvery2Sec = (n) => {
+            for (let i = 1; i <= n; i++) {
+              var y = setInterval(() => {
+                document.querySelector('.flashtimer .js-timer-ms').innerText = i;
+              }, i * 100)
+            }
+          }
+          printNumbersForEvery2Sec(10);
+        // }
+      </script>
+    <script src="script.js"></script>
+
+</body>
+</html>
